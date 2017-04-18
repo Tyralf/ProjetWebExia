@@ -22,6 +22,9 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+
+    protected $password = 'Password';
+    protected $email = 'Email';
     /**
      * Where to redirect users after registration.
      *
