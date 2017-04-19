@@ -17,7 +17,7 @@ class CreateLikeTable extends Migration
             $table->string('Is_Deleted', 100);
             $table->integer('ID_User')->unsigned();
             $table->integer('ID_Photo')->unsigned();
-            $table->foreign('ID_User')->references('id')->on('utilisateur');
+            $table->foreign('ID_User')->references('id')->on('users');
             $table->foreign('ID_Photo')->references('ID_Photo')->on('photo');
         });
     }

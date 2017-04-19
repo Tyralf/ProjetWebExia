@@ -23,8 +23,8 @@ class RegisterController extends Controller
     use RegistersUsers;
 
 
-    protected $password = 'Password';
-    protected $email = 'Email';
+   //protected $password = 'Password';
+    //protected $email = 'Email';
     /**
      * Where to redirect users after registration.
      *
@@ -51,9 +51,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'Nom' => 'required|max:255',
-            'Prenom' => 'required|max:255',
-            'Email' => 'required|email|max:255|unique:utilisateur',
+            'name' => 'required|max:255',
+            'prenom' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             'ecole' => 'required'
         ]);
@@ -68,11 +68,11 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'Nom' => $data['Nom'],
-            'Prenom'=> $data['Prenom'],
-            'Email' => $data['Email'],
-            'Password' => bcrypt($data['password']),
-            'ID_Type_User' => 1,
+            'name' => $data['name'],
+            'prenom'=> $data['prenom'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'ID_Type_User' => 3,
             'ID_Ecole' => $data['ecole']
             ]);
     }

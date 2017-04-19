@@ -64,7 +64,7 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->Prenom }} <span class="caret"></span>
+                                    {{ Auth::user()->prenom }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -73,6 +73,10 @@
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
+                                        </a>
+                                        <a href="{{ url('/home') }}"
+                                           onclick="event.preventDefault()">
+                                            Profil
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

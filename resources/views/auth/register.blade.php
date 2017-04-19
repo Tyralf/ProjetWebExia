@@ -10,50 +10,50 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('Nom') ? ' has-error' : '' }}">
-                            <label for="Nom" class="col-md-4 control-label">Nom</label>
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="Nom" type="text" class="form-control" name="Nom" value="{{ old('Nom') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('Nom'))
+                                @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('Nom') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('Prenom') ? ' has-error' : '' }}">
-                            <label for="Prenom" class="col-md-4 control-label">Prenom</label>
+                        <div class="form-group{{ $errors->has('prenom') ? ' has-error' : '' }}">
+                            <label for="prenom" class="col-md-4 control-label">prenom</label>
 
                             <div class="col-md-6">
-                                <input id="Prenom" type="text" class="form-control" name="Prenom" value="{{ old('Prenom') }}" required autofocus>
+                                <input id="prenom" type="text" class="form-control" name="prenom" value="{{ old('prenom') }}" required autofocus>
 
-                                @if ($errors->has('Prenom'))
+                                @if ($errors->has('prenom'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('Prenom') }}</strong>
+                                        <strong>{{ $errors->first('prenom') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('Email') ? ' has-error' : '' }}">
-                            <label for="Email" class="col-md-4 control-label">E-Mail </label>
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="Email" type="Email" class="form-control" name="Email" value="{{ old('Email') }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
-                                @if ($errors->has('Email'))
+                                @if ($errors->has('email'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('Email') }}</strong>
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Mot de passe</label>
+                            <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirmer Mot de Passe</label>
+                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
@@ -75,10 +75,9 @@
                         </div>
 
                         <div>
-
                                 <p>
                                     Choix de l'ecole :<br />
-                                    <input type="radio" name="ecole" value="1" id="Exia" /> <label for="Exia">Exia</label><br />
+                                <input type="radio" name="ecole" value="1" id="Exia" /> <label for="Exia">Exia</label><br />
                                     <input type="radio" name="ecole" value="2" id="Ei" /> <label for="Ei">Ei</label><br />
 
                                 </p>

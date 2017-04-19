@@ -15,7 +15,7 @@ class CreateParticipationTable extends Migration
         Schema::create('participation', function(Blueprint $table) {
             $table->integer('ID_User')->unsigned();
             $table->integer('ID_Activite')->unsigned();
-            $table->foreign('ID_User')->references('id')->on('utilisateur');
+            $table->foreign('ID_User')->references('id')->on('users');
             $table->foreign('ID_Activite')->references('ID_Activite')->on('activite');
         });
     }
