@@ -7,7 +7,7 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="post_id" value="{{ $post->id }}{{ old('ID_Activite') }}">
         <div class="form-group">
-            <input required="required" placeholder="Enter title here" type="text" name = "title" class="form-control" value="@if(!old('titre')){{$post->titre}}@endif{{ old('titre') }}"/>
+            <input required="required" placeholder="Enter title here" type="text" name = "titre" class="form-control" value="@if(!old('titre')){{$post->titre}}@endif{{ old('titre') }}"/>
         </div>
         <div class="form-group">
     <textarea name='body'class="form-control">

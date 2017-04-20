@@ -37,7 +37,7 @@ class User extends Authenticatable
 
     public function comments()
     {
-        return $this->hasMany('App\Comments','ID_User');
+        return $this->hasMany('App\Commentaire','ID_User');
     }
     public function can_post()
     {

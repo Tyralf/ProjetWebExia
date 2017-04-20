@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Activite;
-use App\Comments;
+use App\Commentaire;
 use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -19,7 +19,8 @@ class CommentController extends Controller
         $input['ID_Activite'] = $request->input('ID_Activite');
         $input['commentaire'] = $request->input('commentaire');
         $slug = $request->input('slug');
-        Comments::create( $input );
+        $input['Is_deleted'] = 1;
+        Commentaire::create( $input );
         return redirect($slug)->with('message', 'Comment published');
     }
 }

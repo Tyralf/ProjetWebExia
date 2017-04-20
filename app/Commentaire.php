@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Comments extends Model {
+class Commentaire extends Model {
     //comments table in database
     protected $guarded = [];
     // user who has commented

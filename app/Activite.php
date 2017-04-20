@@ -10,7 +10,7 @@ class Activite extends Model {
     // returns all comments on that post
     public function comments()
     {
-        return $this->hasMany('App\Comments','ID_Activite');
+        return $this->hasMany('App\Commentaire','ID_Activite');
     }
     // returns the instance of the user who is author of that post
     public function author()

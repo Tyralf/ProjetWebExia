@@ -64,7 +64,7 @@ Route::group(['middleware' => ['auth']], function()
     // display user's drafts
     Route::get('my-drafts','ActiviteController@user_posts_draft');
     // add comment
-    Route::post('comment/add','ActiviteController@store');
+    Route::post('comment/add','CommentController@store');
     // delete comment
     Route::post('comment/delete/{id}','ActiviteController@distroy');
 });

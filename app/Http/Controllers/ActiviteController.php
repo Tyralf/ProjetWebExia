@@ -8,13 +8,14 @@ use App\User;
 use Redirect;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostFormRequest;
+use Illuminate\Support\Facades\DB;
 
 class ActiviteController extends Controller
 {
     public function index()
     {
         //fetch 5 posts from database which are active and latest
-        $posts = Activite::where('Is_deleted',0)->orderBy('created_at','desc')->paginate(5);
+        $posts = Activite::where('Is_Deleted',0)->orderBy('created_at','desc')->paginate(5);
         //page heading
         $title = 'Latest Activite';
         //return activite.blade.php template from resources/views folder
@@ -44,12 +45,12 @@ class ActiviteController extends Controller
         $post->ID_Author = $request->user()->id;
         if($request->has('save'))
         {
-            $post->Is_deleted = 1;
+            $post->Is_Deleted = 1;
             $message = 'Post saved successfully';
         }
         else
         {
-            $post->Is_deleted = 0;
+            $post->Is_Deleted = 0;
             $message = 'Post published successfully';
         }
         $post->save();
@@ -63,8 +64,13 @@ class ActiviteController extends Controller
         {
             return redirect('/')->withErrors('requested page not found');
         }
-        $comments = $post->comments;
-        return view('posts.show')->withPost($post)->withComments($comments);
+//        $comments = $post->comments;
+//        return view('show')->withPost($post)->withComments($comments);
+        $comments = DB::table('commentaires')
+            ->join('users', 'commentaires.ID_User', '=', 'users.id')
+            ->select('users.name', 'users.prenom', 'commentaires.created_at', 'commentaires.commentaire', 'commentaires.ID_Activite')
+            ->where('ID_Activite', '=', $post->id)->get();
+        return view('show')->withPost($post)->with('comments', $comments);
     }
 
     public function edit(Request $request,$slug)
@@ -80,7 +86,7 @@ class ActiviteController extends Controller
     {
 
 
-        $post_id = $request->input('id');
+        $post_id = $request->input('post_id');
         $post = Activite::find($post_id);
         if($post && ($post->ID_Author == $request->user()->id || $request->user()->ID_Type_User == 3 ))
         {
@@ -102,12 +108,12 @@ class ActiviteController extends Controller
             $post->body = $request->input('body');
             if($request->has('save'))
             {
-                $post->Is_deleted = 1;
+                $post->Is_Deleted = 1;
                 $message = 'Post saved successfully';
                 $landing = 'edit/'.$post->slug;
             }
             else {
-                $post->Is_deleted = 0;
+                $post->Is_Deleted = 0;
                 $message = 'Post updated successfully';
                 $landing = $post->slug;
             }
