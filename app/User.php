@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -16,7 +16,6 @@ class User extends Authenticatable
      * @var array
      */
 
-   // protected $table = 'utilisateur';
 
     protected $fillable = [
         'name', 'prenom' ,'email', 'password','ID_Ecole','ID_Type_User',
@@ -30,4 +29,33 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function posts()
+    {
+        return $this->hasMany('App\Activite','ID_Author');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comments','ID_User');
+    }
+    public function can_post()
+    {
+        $role = $this->ID_Type_User;
+        if($role == 3 || $role == 2)
+        {
+            return true;
+        }
+        return false;
+    }
+    public function is_admin()
+    {
+        $role = $this->ID_Type_User;
+        if($role == 3)
+        {
+            return true;
+        }
+        return false;
+    }
+
 }

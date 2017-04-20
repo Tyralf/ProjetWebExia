@@ -19,7 +19,7 @@ class CreatePhotoTable extends Migration
             $table->string('Url', 100);
             $table->integer('ID_Activite')->unsigned();
             $table->integer('ID_Type_Photo')->unsigned();
-            $table->foreign('ID_Activite')->references('ID_Activite')->on('activite');
+            $table->foreign('ID_Activite')->references('id')->on('activites');
             $table->foreign('ID_Type_Photo')->references('ID_Type_Photo')->on('type_photo');
 
         });

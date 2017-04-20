@@ -2,7 +2,7 @@
 
 @section('title')
     Boutique
-    @endsection
+@endsection
 
 @section('sidebar')
     @parent

@@ -16,7 +16,7 @@ class CreateParticipationTable extends Migration
             $table->integer('ID_User')->unsigned();
             $table->integer('ID_Activite')->unsigned();
             $table->foreign('ID_User')->references('id')->on('users');
-            $table->foreign('ID_Activite')->references('ID_Activite')->on('activite');
+            $table->foreign('ID_Activite')->references('id')->on('activites');
         });
     }
 

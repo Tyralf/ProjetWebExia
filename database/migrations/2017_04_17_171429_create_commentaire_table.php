@@ -13,14 +13,16 @@ class CreateCommentaireTable extends Migration
     public function up()
     {
         Schema::create('commentaire', function(Blueprint $table) {
-            $table->increments('ID_Commentaire');
+            $table->increments('id');
             $table->boolean('Is_Deleted', 100);
-            $table->date('Date', 100);
-            $table->string('Commentaire', 100);
+            //$table->date('date', 100);
+            $table->string('commentaire', 100);
             $table->integer('ID_User')->unsigned();
-            $table->integer('ID_Photo')->unsigned();
+            $table->integer('ID_Activite')->unsigned();
             $table->foreign('ID_User')->references('id')->on('users');
-            $table->foreign('ID_Photo')->references('ID_Photo')->on('photo');
+            $table->foreign('ID_Activite')->references('id')->on('activites');
+            //$table->foreign('ID_Photo')->references('ID_Photo')->on('photo');
+            $table->timestamps();
         });
     }
 
