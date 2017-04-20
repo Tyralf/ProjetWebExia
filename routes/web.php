@@ -19,6 +19,30 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/boutique', [
+    'uses' => 'CartController@getBoutique',
+    'as' => 'product.index'
+]);
+
+Route::get('/add-to-cart/{id}',[
+    'uses' => 'CartController@addItem',
+    'as' => 'product.addToCart'
+]);
+
+Route::get('/remove/{id}',[
+    'uses' => 'CartController@getRemoveItem',
+    'as' => 'product.remove'
+]);
+
+Route::get('/shopping-cart',[
+    'uses' => 'CartController@getCart',
+    'as' => 'product.shoppingCart'
+]);
+
+Route::get('/reduce/{id}',[
+    'uses' => 'CartController@getReduceOne',
+    'as' => 'product.reduceOne'
+]);
 Route::post('/home', 'HomeController@update');
 
 Route::get('/activite', 'ActiviteController@index');
@@ -50,28 +74,3 @@ Route::get('user/{id}','UserController@profile')->where('id', '[0-9]+');
 Route::get('user/{id}/posts','UserController@user_posts')->where('id', '[0-9]+');
 // display single post
 Route::get('/{slug}',['as' => 'post', 'uses' => 'ActiviteController@show'])->where('slug', '[A-Za-z0-9-_]+');
-
-
-
-Route::get('/boutique', 'CartController@getBoutique');
-
-
-Route::get('/add-to-cart/{id}',[
-    'uses' => 'CartController@addItem',
-    'as' => 'product.addToCart'
-]);
-
-Route::get('/remove/{id}',[
-    'uses' => 'CartController@getRemoveItem',
-    'as' => 'product.remove'
-]);
-
-Route::get('/shopping-cart',[
-    'uses' => 'CartController@getCart',
-    'as' => 'product.shoppingCart'
-]);
-
-Route::get('/reduce/{id}',[
-    'uses' => 'CartController@getReduceOne',
-    'as' => 'product.reduceOne'
-]);

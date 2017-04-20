@@ -16,10 +16,10 @@ class CartController extends Controller
         $this->middleware('auth');
     }
 
-//    public function getBoutique(){
-//        $products = Product::all();
-//        return view('boutique',['products' => $products]);
-//    }
+    public function getBoutique(){
+        $products = Product::all();
+        return view('boutique',['products' => $products]);
+    }
 
     public function addItem (Request $request, $id){
         $product = Product::find($id);
