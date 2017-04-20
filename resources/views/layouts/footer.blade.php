@@ -22,7 +22,7 @@
                 </div>
                 <div id="contact" class="col-md-6">
                     <p>60 rue de Maurian <br>
-                        33295 Blanquefort, France<br>
+                        33295 Blanquefort , France<br>
                         presidentBDE@viacesi.fr<br>
                         +33 5 56 95 50 50</p>
                 </div>
@@ -34,9 +34,9 @@
                 <div id="twitter" class="col-md-1">
                     <img src="../../../public/images/Twitter.png">
                 </div>
-
+s
                 <div id="mention" class="col-md-2">
-                    <p><a href="">/Mention légales</a></p>
+                    <p><a href="">/Mention légales  ttgvc</a></p>
                 </div>
             </div>
         </div>
