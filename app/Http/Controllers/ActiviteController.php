@@ -141,4 +141,5 @@ class ActiviteController extends Controller
         }
         return redirect('/activite')->with($data);
     }
+    //yolo
 }
