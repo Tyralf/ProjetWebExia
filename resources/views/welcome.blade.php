@@ -86,11 +86,11 @@
             @endif
         <div class="top-left links">
             <div class="links">
-                <a href="activite">Activités</a>
+                <a href="{{ url('/activite') }}">Activités</a>
                 |
-                <a href="galerie">Galerie</a>
+                <a href="{{ url('/galerie') }}">Galerie</a>
                 |
-                <a href="boutique">Boutique</a>
+                <a href="{{ url('/boutique') }}">Boutique</a>
             </div>
         </div>
 
@@ -101,9 +101,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="activite">Activités</a>
-                    <a href="galerie">Galerie</a>
-                    <a href="boutique">Boutique</a>
+                    <a href="{{ url('/activite') }}">Activités</a>
+                    <a href="{{ url('/galerie') }}">Galerie</a>
+                    <a href="{{ url('/boutique') }}">Boutique</a>
                 </div>
             </div>
         </div>

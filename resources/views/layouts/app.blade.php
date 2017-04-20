@@ -27,25 +27,25 @@
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                    <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                       <span class="sr-only">Toggle Navigation</span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                   </button> -->
 
-                    <!-- Branding Image -->
+                   <!-- Branding Image -->
                     <img src="/img/Logonulpetit.png" alt="header" class="navbar-brand">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         BDE CESI
                     </a>
                     <div class="navbar-brand">   </div>
 
-                    <a class="navbar-brand" href="activite">Activités</a>
+                    <a class="navbar-brand" href="{{ url('/activite') }}">Activités</a>
                     <div class="navbar-brand">|</div>
-                    <a class="navbar-brand" href="galerie">Galerie</a>
+                    <a class="navbar-brand" href="{{ url('/galerie') }}">Galerie</a>
                     <div class="navbar-brand">|</div>
-                    <a class="navbar-brand" href="boutique">Boutique</a>
+                    <a class="navbar-brand" href="{{ url('/boutique') }}" >Boutique</a>
 
                 </div>
 
@@ -58,6 +58,12 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
+                        <li>
+                            <a href="{{route('product.shoppingCart') }}">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>Mon panier
+                                <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
+                            </a>
+                        </li>
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
