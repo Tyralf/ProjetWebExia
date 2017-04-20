@@ -10,7 +10,7 @@
                 <div class="panel-body">
 
                     @if(Auth::user()->ID_Type_User == 3)
-                    Bienvenu sur votre profil Admin : {{ Auth::user()->prenom }} !
+                    Bienvenue sur votre profil Admin : {{ Auth::user()->prenom }} !
 
                         <div class="panel-body">Voulez vous ajouter une image ?</div>
                         {!! Form::open(['url' => 'photo', 'files' => true]) !!}

@@ -18,3 +18,28 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/boutique', [
+    'uses' => 'CartController@getBoutique',
+    'as' => 'product.index'
+]);
+
+Route::get('/add-to-cart/{id}',[
+    'uses' => 'CartController@addItem',
+    'as' => 'product.addToCart'
+]);
+
+Route::get('/remove/{id}',[
+    'uses' => 'CartController@getRemoveItem',
+    'as' => 'product.remove'
+]);
+
+Route::get('/shopping-cart',[
+    'uses' => 'CartController@getCart',
+    'as' => 'product.shoppingCart'
+]);
+
+Route::get('/reduce/{id}',[
+    'uses' => 'CartController@getReduceOne',
+    'as' => 'product.reduceOne'
+]);
