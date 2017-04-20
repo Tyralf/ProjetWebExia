@@ -76,9 +76,12 @@
                                 <a href="{{ url('/home')}}">My Profile</a>
                             </li>
                             <li>
-                                <a href="{{ url('/home') }}" onclick="event.preventDefault();
+                                <a href="{{ url('/logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout</a>
                             </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                         </ul>
                     </li>
                 @endif
