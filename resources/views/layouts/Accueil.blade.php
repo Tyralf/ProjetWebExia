@@ -16,8 +16,7 @@
 <body>
 <header>
 
-
-    <img src="/img/BDE_CESI_version_EXIA.jpg" alt="header">
+    <img src="/img/BDE_CESI_version_EXIA.jpg" class="img-responsive" alt="header">
 
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

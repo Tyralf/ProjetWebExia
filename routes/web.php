@@ -19,6 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/createProduct', 'CartController@add');
+
+Route::post('/insertProduct', 'CartController@create');
+
 Route::get('/boutique', [
     'uses' => 'CartController@getBoutique',
     'as' => 'product.index'

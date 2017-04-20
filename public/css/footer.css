@@ -62,8 +62,9 @@ footer.body {
 
 
 #foot{
+    margin-top: 15rem;
     color: white;
-    background-color: #666666;
+    background-color: #cc0000;
     height: 15rem;
 
 }

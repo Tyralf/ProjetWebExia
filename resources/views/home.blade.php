@@ -21,7 +21,7 @@
 -->
                         @if(Auth::user()->ID_Type_User == 3)
 
-                            Bienvenu sur votre profil Admin : {{ Auth::user()->prenom }} !
+                            Bienvenue sur votre profil Admin : {{ Auth::user()->prenom }} !
 
 
                             <form enctype="multipart/form-data" action="/profil" mehod="POST">
@@ -52,7 +52,7 @@
                     </form>
                     </div>
                     @else()
-                        Bienvenu sur votre profil : {{ Auth::user()->prenom }} !
+                        Bienvenue sur votre profil : {{ Auth::user()->prenom }} !
                     @endif
                 </div>
             </div>

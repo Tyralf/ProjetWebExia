@@ -14,7 +14,7 @@
 </head>
 <body>
 <footer>
-    <div class="container-fluid">
+    {{--<div class="container-fluid">--}}
         <div class="container-fluid">
             <div class="row" id="foot">
                 <div id="copyright" class="col-md-2">
@@ -28,18 +28,17 @@
                 </div>
 
                 <div id="facebook" class="col-md-1">
-                    <img src="../../../public/images/Facebook.png">
+                    <img src="/img/Facebook.png">
                 </div>
 
                 <div id="twitter" class="col-md-1">
-                    <img src="../../../public/images/Twitter.png">
+                    <img src="/img/Twitter.png">
                 </div>
-s
                 <div id="mention" class="col-md-2">
                     <p><a href="">Mentions légales </a></p>
                 </div>
             </div>
-        </div>
+        {{--</div>--}}
     </div>
 </footer>
 </body>

@@ -6,7 +6,7 @@ use App\Cart;
 use Session;
 use Illuminate\Http\Request;
 use App\Product;
-use App\Http\Requests;
+use Symfony\Component\Console\Input\Input;
 
 class CartController extends Controller
 {
@@ -19,6 +19,20 @@ class CartController extends Controller
     public function getBoutique(){
         $products = Product::all();
         return view('boutique',['products' => $products]);
+    }
+
+    public function add() {
+        return view('createProduct');
+    }
+
+    public function create(Request $request){
+        $product = new Product;
+        $product->name = $request->input('name');
+        $product->description = $request->input('description');
+        $product->price = $request->input('price');
+        $product->imageurl = $request->input('imageurl');
+        $product->save();
+        return redirect()->route('product.index');
     }
 
     public function addItem (Request $request, $id){
@@ -42,7 +56,6 @@ class CartController extends Controller
     }
 
     public function getReduceOne($id){
-
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->reduceOne($id);
@@ -52,10 +65,7 @@ class CartController extends Controller
         } else {
             Session::forget('cart');
         }
-
         return redirect()->route('product.shoppingCart');
-
-
     }
 
     public function getRemoveItem($id){

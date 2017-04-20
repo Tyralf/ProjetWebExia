@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateTypeActiviteTable extends Migration
 {
     /**
@@ -18,7 +16,6 @@ class CreateTypeActiviteTable extends Migration
             $table->string('Type_Activite', 100);
         });
     }
-
     /**
      * Reverse the migrations.
      *

@@ -37,6 +37,10 @@
                 @endforeach
             </div>
         </div>
+        @if(!Auth::guest() && ($product->author_id == Auth::user()->id || Auth::user()->is_admin()))
+            <button class="btn"><a href="/createProduct">Rajouter un produit</a></button>
+        @endif
     </div>
 
 @endsection
+
