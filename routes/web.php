@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/galerie', function(){ return redirect('/galerie'); });
+Route::resource('/galerie', 'GalerieController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

@@ -11,10 +11,10 @@
 
 
                     <!-- <img src="/img/avatars/{{Auth::user()->avatar}}"style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
-                    <form enctype="multipart/form-data" action="/profil" mehod="POST">
+                    <form enctype="multipart/form-data" action="/profil" mehod="Photo>
                         <label>Update Profil Image</label>
                         <input type="file" name="avatar">
-                        <input type=hidden" name="_token" value="Image...">
+             Photo      <input type=hidden" name="_token" value="Image...">
                         <input type="submit" class="pull-right btn btn-sm btn-primary">
 
                     </form>
