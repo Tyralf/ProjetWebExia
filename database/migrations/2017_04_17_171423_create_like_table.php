@@ -18,7 +18,7 @@ class CreateLikeTable extends Migration
             $table->integer('ID_User')->unsigned();
             $table->integer('ID_Photo')->unsigned();
             $table->foreign('ID_User')->references('id')->on('users');
-            $table->foreign('ID_Photo')->references('ID_Photo')->on('photo');
+            $table->foreign('ID_Photo')->references('ID_Photo')->on('photos');
         });
     }
 

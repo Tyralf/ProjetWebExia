@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/galerie', function(){ return redirect('/galerie'); });
+Route::resource('/galerie', 'GalerieController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -74,3 +77,4 @@ Route::get('user/{id}','UserController@profile')->where('id', '[0-9]+');
 Route::get('user/{id}/posts','UserController@user_posts')->where('id', '[0-9]+');
 // display single post
 Route::get('/{slug}',['as' => 'post', 'uses' => 'ActiviteController@show'])->where('slug', '[A-Za-z0-9-_]+');
+

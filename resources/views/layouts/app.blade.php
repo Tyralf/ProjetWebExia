@@ -34,7 +34,7 @@
                        <span class="icon-bar"></span>
                    </button> -->
 
-                   <!-- Branding Image -->
+                   <!-- BrandPhotomage -->
                     <img src="/img/Logonulpetit.png" alt="header" class="navbar-brand">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         BDE CESI
