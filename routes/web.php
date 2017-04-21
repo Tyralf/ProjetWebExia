@@ -55,6 +55,10 @@ Route::group(['middleware' => ['auth']], function()
     Route::post('new-post','ActiviteController@store');
     // edit post form
     Route::get('edit/{slug}','ActiviteController@edit');
+
+    Route::get('inscription/{slug}','ActiviteController@inscription');
+
+    Route::post('inscrire','InscriptionController@index');
     // update post
     Route::post('update','ActiviteController@update');
     // delete post
@@ -74,3 +78,5 @@ Route::get('user/{id}','UserController@profile')->where('id', '[0-9]+');
 Route::get('user/{id}/posts','UserController@user_posts')->where('id', '[0-9]+');
 // display single post
 Route::get('/{slug}',['as' => 'post', 'uses' => 'ActiviteController@show'])->where('slug', '[A-Za-z0-9-_]+');
+
+//Route::get('/{slug}',['as' => 'post', 'uses' => 'ActiviteController@inscripion'])->where('slug', '[A-Za-z0-9-_]+');

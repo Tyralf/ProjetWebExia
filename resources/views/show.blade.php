@@ -17,6 +17,22 @@
         <div>
             {!! $post->body !!}
         </div>
+
+        @if(Auth::guest())
+            <p>Login to Subscribe</p>
+        @else
+
+        @if(App\Participe::where('ID_Activite', '=', $post->id )->where('ID_User', '=', Auth::user()->id)->exists())
+            <p>Vous etes deja inscrit</p>
+        @else
+            <div>
+                <button class="btn" style="float: right"><a href="{{ url('inscription/'.$post->slug)}}">S'inscrire</a></button>
+            </div>
+        @endif
+
+
+
+        @endif
         <div>
             <h2>Leave a comment</h2>
         </div>
@@ -53,6 +69,23 @@
                     @endforeach
                 </ul>
             @endif
+        </div>
+        <div>
+        @if($inscris )
+            <ul style="list-style: none; padding: 0">
+                @foreach($inscris  as $inscrit)
+                    <li class="panel-body">
+                        <div class="list-group">
+                            <div class="list-group-item">
+                                <h4>Nombre d'inscris : {{ $inscrit->participants }}</h4>
+
+                            </div>
+
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+        @endif
         </div>
     @else
         404 error

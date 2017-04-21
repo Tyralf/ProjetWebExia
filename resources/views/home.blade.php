@@ -50,9 +50,13 @@
                         <input type="submit" name='save' class="btn btn-info pull-right" value = "Save Draft" />
 
                     </form>
-                    </div>
+
+
+
                     @else()
                         Bienvenu sur votre profil : {{ Auth::user()->prenom }} !
+
+
                     @endif
                 </div>
             </div>
@@ -60,3 +64,4 @@
     </div>
     </div>
 @endsection
+
