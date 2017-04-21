@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Activite;
 use Illuminate\Http\Request;
 use App\Photo;
 use Validator;
@@ -33,7 +34,8 @@ class GalerieController extends Controller
         }
 
         $photo = new Photo;
-
+        $activite = Activite::where('titre','=',$request->input('NomActivite'))->first();
+        $activite = $activite->id;
         // upload the image //
         $file = $request->file('userfile');
         $destination_path = 'uploads/';
@@ -43,7 +45,7 @@ class GalerieController extends Controller
         // save image data into database //
         $photo->Url = $destination_path . $filename;
         $photo->Is_Deleted = 1;
-        $photo->ID_Activite = $request->input('ID_Activite');
+        $photo->ID_Activite = $activite;
         $photo->save();
 
         return redirect('/')->with('message','You just uploaded an image!');
@@ -89,5 +91,17 @@ class GalerieController extends Controller
         $photo = Photo::find($id);
         $photo->delete();
         return redirect('/')->with('message','You just uploaded an image!');
+    }
+
+    public function show($id)
+    {
+        $photo = Photo::find($id);
+        return view('image-detail')->with('photo', $photo);
+    }
+
+    public function edit($id)
+    {
+        $photo = Photo::find($id);
+        return view('edit-image')->with('photo', $photo);
     }
 }

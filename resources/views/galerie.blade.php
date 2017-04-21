@@ -14,13 +14,13 @@
         @forelse($photos as $photo)
             <div class="col-md-3">
                 <div class="thumbnail">
-                    <img src="{{asset($photo->file)}}" />
+                    <img src="{{asset($photo->Url)}}" />
                     <div class="caption">
                         <h3>{{$photo->caption}}</h3>
                         <p>{!! substr($photo->description, 0,100) !!}</p>
                         <p>
                         <div class="row text-center" style="padding-left:1em;">
-                            <a href="{{ url('/galerie/'.$photo->id.'/edit') }}" class="btn btn-warning pull-left">Edit</a>
+
                             <span class="pull-left">&nbsp;</span>
                             {!! Form::open(['url'=>'/galerie/'.$photo->id, 'class'=>'pull-left']) !!}
                             {!! Form::hidden('_method', 'DELETE') !!}

@@ -10,8 +10,8 @@
     </div>
 
     <div class="form-group">
-        <label for="ID_Activite">ID Activité</label>
-        <input type="text" class="form-control" name="ID_Activite">
+        <label for="ID_Activite">Activite</label>
+        <input type="text" class="form-control" name="NomActivite">
     </div>
 
 
