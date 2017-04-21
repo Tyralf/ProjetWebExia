@@ -47,6 +47,12 @@ Route::get('/reduce/{id}',[
     'uses' => 'CartController@getReduceOne',
     'as' => 'product.reduceOne'
 ]);
+
+Route::get('/add/{id}',[
+    'uses' => 'CartController@getAddOne',
+    'as' => 'product.addOne'
+]);
+
 Route::post('/home', 'HomeController@update');
 
 Route::get('/activite', 'ActiviteController@index');
