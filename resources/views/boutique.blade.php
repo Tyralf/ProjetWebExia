@@ -29,7 +29,9 @@
                                 <p>{{$product->description}}</p>
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3">
-                                        <a href="{{ route('product.addToCart', ['id' => $product->id]) }}" class="btn btn-success btn-product"><span class="fa fa-shopping-cart"></span> Acheter</a></div>
+                                        <a href="{{ route('product.addToCart', ['id' => $product->id]) }}" type="button" id="buttonAdd">
+                                            <span class="fa fa-shopping-cart"></span> Acheter
+                                        </a></div>
                                 </div>
                             </div>
                         </div>
