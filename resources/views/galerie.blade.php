@@ -30,6 +30,7 @@
                         </p>
                     </div>
                 </div>
+                </div>
             </div>
         @empty
             <p>No images yet, <a href="{{ url('/galerie/create') }}">add a new one</a>?</p>
