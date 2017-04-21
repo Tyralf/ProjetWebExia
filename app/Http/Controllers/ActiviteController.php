@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Participe;
 use Illuminate\Http\Request;
 use App\Activite;
 use App\User;
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\DB;
 
 class ActiviteController extends Controller
 {
+
+
     public function index()
     {
         //fetch 5 posts from database which are active and latest
@@ -70,7 +73,25 @@ class ActiviteController extends Controller
             ->join('users', 'commentaires.ID_User', '=', 'users.id')
             ->select('users.name', 'users.prenom', 'commentaires.created_at', 'commentaires.commentaire', 'commentaires.ID_Activite')
             ->where('ID_Activite', '=', $post->id)->get();
-        return view('show')->withPost($post)->with('comments', $comments);
+
+
+
+//        $inscris = DB::table('participation')
+//                ->selectRaw('COUNT(`ID_User`) as `participants`, `ID_Activite')
+//                ->groupBy('ID_Activite')
+//                ->orderBy('participants', 'desc')
+//            ->where('participation.ID_Activite', '=', $post->id)->get();
+
+        $inscris = Participe::selectRaw('COUNT(`ID_User`) as `participants`, `ID_Activite`')
+            ->groupBy('ID_Activite')
+            ->orderBy('participants', 'desc')
+            ->where('ID_Activite', '=', $post->id)
+            ->get();
+
+
+
+
+        return view('show')->withPost($post)->with('comments', $comments )->with('inscris', $inscris );
     }
 
     public function edit(Request $request,$slug)
@@ -118,6 +139,8 @@ class ActiviteController extends Controller
                 $landing = $post->slug;
             }
             $post->save();
+
+
             return redirect($landing)->withMessage($message);
         }
         else
@@ -125,6 +148,30 @@ class ActiviteController extends Controller
             return redirect('/activite')->withErrors('you have not sufficient permissions');
         }
     }
+
+    public function inscription($slug)
+    {
+        $post = Activite::where('slug',$slug)->first();
+
+
+
+        if(!$post)
+        {
+            return redirect('/')->withErrors('requested page not found');
+        }
+
+
+
+
+        $inscris = DB::table('activites')
+            ->join('users', 'activites.ID_Author', '=', 'users.id')
+            ->select('users.name', 'users.prenom', 'activites.titre','activites.id','activites.body','activites.slug')
+            ->where('activites.id', '=', $post->id)->get();
+        return view('inscription')->withPost($post)->with('inscris', $inscris );
+
+    }
+
+
 
     public function destroy(Request $request, $id)
     {
@@ -141,4 +188,5 @@ class ActiviteController extends Controller
         }
         return redirect('/activite')->with($data);
     }
+    //yolo
 }
